@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="Challenge2Flowgorithm"/>
+        <attribute name="authors" value="Touria"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2026-03-05 10:53:37 "/>
+        <attribute name="created" value="VG91cmlhO0RFU0tUT1AtMjEwUkFTMjsyMDI2LTAzLTA1OyIxMDoyODoxMyAiOzI4MjY="/>
+        <attribute name="edited" value="VG91cmlhO0RFU0tUT1AtMjEwUkFTMjsyMDI2LTAzLTA1OyIxMDo1MzozNyAiOzE7MjkzOA=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="age" type="Integer" array="False" size=""/>
+            <declare name="price" type="Integer" array="False" size=""/>
+            <input variable="age"/>
+            <if expression="age &lt; 12">
+                <then>
+                    <assign variable="price" expression="20"/>
+                </then>
+                <else>
+                    <if expression="age &lt;= 18">
+                        <then>
+                            <assign variable="price" expression="40"/>
+                        </then>
+                        <else>
+                            <if expression="age &gt; 60">
+                                <then>
+                                    <assign variable="price" expression="30"/>
+                                </then>
+                                <else>
+                                    <assign variable="price" expression="60"/>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                </else>
+            </if>
+            <if expression="price == 20">
+                <then>
+                    <output expression="&quot;------ Ticket ------&quot; &amp; ToChar(13) &amp; &quot; Price : &quot; &amp; price &amp; ToChar(13) &amp; &quot; Special: Children's Menu included!&quot; &amp; ToChar(13) &amp; &quot;---------------------&quot;" newline="True"/>
+                </then>
+                <else>
+                    <output expression="&quot;------ Ticket ------&quot; &amp; ToChar(13) &amp; &quot; Price : &quot; &amp; price &amp; ToChar(13) &amp; &quot;--------------------&quot;" newline="True"/>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>
