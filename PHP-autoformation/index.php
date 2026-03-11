@@ -37,6 +37,7 @@
         <li><a href="Challenge6.php">Challenge 6</a></li>
         <li><a href="Challenge7.php">Challenge 7</a></li>
         <li><a href="LoginPage.php">Challenge 8 </a></li>
+         <li><a href="Challenge9.php">Challenge 9 </a></li>
     </ul>
 
 </body>
