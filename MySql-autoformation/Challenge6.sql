@@ -3,7 +3,7 @@ SELECT status , COUNT(status) as num
 FROM library_books
 GROUP BY status;
 --Author Performance: Show the total value of books owned by each author.
-SELECT author , COUNT(*) as total_books
+SELECT author , SUM(price) as total_value
 FROM library_books
 GROUP BY author;
 --The Filter: Show only the authors whose total book value is greater than 500 MAD (use HAVING).
