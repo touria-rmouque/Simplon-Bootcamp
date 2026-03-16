@@ -1,0 +1,17 @@
+gearlog/
+├── classes/
+│   ├── Database.php      
+│   ├── Asset.php         
+│   └── Category.php      
+├── backend/
+│   ├── process_add.php   
+│   └── process_delete.php
+├── frontend/
+│   ├── includes/
+│   │   ├── header.php    
+│   │   └── footer.php    
+│   ├── index.php         
+│   ├── inventory.php     
+│   └── add_form.php      
+└── sql/
+    └── schema.sql        
