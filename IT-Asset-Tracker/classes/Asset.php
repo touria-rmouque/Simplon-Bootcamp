@@ -97,5 +97,25 @@ public function getTotalValue() {
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
     return $row['total_price'] ?? 0; 
 }
+public function getPaginated($start, $limit) {
+    $query = "SELECT a.*, c.type as category_name 
+              FROM " . $this->table_name . " a 
+              INNER JOIN categories c ON a.category_id = c.id 
+              LIMIT :start, :limit";
+
+    $stmt = $this->conn->prepare($query);
+    $stmt->bindValue(':start', (int)$start, PDO::PARAM_INT);
+    $stmt->bindValue(':limit', (int)$limit, PDO::PARAM_INT);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+public function countAll() {
+    $query = "SELECT COUNT(*) as total FROM " . $this->table_name;
+    $stmt = $this->conn->prepare($query);
+    $stmt->execute();
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $row['total'];
+}
 }
 ?>

@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header('Location: login.php');
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -8,15 +15,16 @@
 </head>
 <body class="bg-light">
 
-<nav class="navbar navbar-dark bg-dark border-bottom border-danger border-4 mb-4">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-danger border-4 mb-4">
     <div class="container">
         <a class="navbar-brand fw-bold" href="index.php">
             <span class="text-danger">G</span>earLog
         </a>
         
-        <div class="navbar-nav d-flex flex-row">
+        <div class="navbar-nav d-flex flex-row align-items-center">
             <a class="nav-link me-3" href="index.php">Dashboard</a>
-            <a class="nav-link" href="inventory.php">Inventaire</a>
+            <a class="nav-link me-3" href="inventory.php">Inventaire</a>
+            <a class="nav-link me-3" href="logout.php" >Logout</a>
         </div>
     </div>
 </nav>
