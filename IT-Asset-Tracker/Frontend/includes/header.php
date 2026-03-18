@@ -12,6 +12,7 @@ if (!isset($_SESSION['user_id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GearLog</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="bg-light">
 
@@ -22,9 +23,16 @@ if (!isset($_SESSION['user_id'])) {
         </a>
         
         <div class="navbar-nav d-flex flex-row align-items-center">
-            <a class="nav-link me-3" href="index.php">Dashboard</a>
-            <a class="nav-link me-3" href="inventory.php">Inventaire</a>
-            <a class="nav-link me-3" href="logout.php" >Logout</a>
+            <a class="nav-link me-3" href="index.php">
+                 Dashboard
+            </a>
+            <a class="nav-link me-3" href="inventory.php">
+                 Inventaire
+            </a>
+            
+            <a class="btn btn-outline-danger btn-sm ms-2" href="logout.php">
+                <i class="fas fa-right-from-bracket me-1"></i> Logout
+            </a>
         </div>
     </div>
 </nav>
