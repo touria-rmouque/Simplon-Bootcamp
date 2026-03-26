@@ -2,6 +2,17 @@
 
 ![alt text](include/image.png)
 
+---
+
+##  Sommaire
+1. [Présentation](#prompt-repo--système-de-gestion-de-prompts)
+2. [Technologies Utilisées](#technologies-utilisées)
+3. [Structure du Projet](#structure-du-projet)
+4. [Instructions d'Installation](#instructions-dinstallation)
+
+
+---
+
 **Prompt-Repo** est une plateforme centralisée permettant aux développeurs de stocker, modifier et partager leurs meilleurs prompts d'IA. Ce projet met en œuvre une architecture **MVC personnalisée** en PHP natif pour garantir une séparation claire entre la logique métier et l'interface utilisateur.
 
 ---
