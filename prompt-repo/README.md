@@ -34,6 +34,7 @@ prompt-repo/
 │   └── partials/       # Composants réutilisables (header, footer)
 ├── .htaccess           # Configuration du point d'entrée
 └── index.php           # Redirection automatique
+```
 
 ## Instructions d'Installation
 
