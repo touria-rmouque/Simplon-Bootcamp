@@ -62,13 +62,17 @@
     </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
     const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.has('error') && urlParams.get('error') === 'email_exists') {
-        const toastEl = document.getElementById('errorToast');
-        const toast = new bootstrap.Toast(toastEl, { delay: 5000 });
-        toast.show();
+    
+    if (urlParams.get('error') === 'email_exists') {
+        const toastLiveExample = document.getElementById('errorToast');
+        if (toastLiveExample) {
+            const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample);
+            toastBootstrap.show();
+        }
     }
 });
 </script>
