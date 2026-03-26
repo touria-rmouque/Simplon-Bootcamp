@@ -67,7 +67,7 @@ Vérifiez les accès dans le fichier `config/Database.php` :
 
 ```php
 private $host = "localhost";
-private $db_name = "prompt_db";
+private $db_name = "prompt_repo";
 private $username = "root"; 
 private $password = ""; 
 ```
