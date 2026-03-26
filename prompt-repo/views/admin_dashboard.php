@@ -23,7 +23,7 @@ foreach ($allPrompts as $p) {
     $stats[$author] = ($stats[$author] ?? 0) + 1;
 }
 arsort($stats); 
-$topContributors = array_slice($stats, 0, 5); 
+$topContributors = array_slice($stats, 0, 3); 
 
 include "partials/header.php";
 ?>
@@ -282,26 +282,29 @@ searchCategory.addEventListener('change', filterPrompts);
 
 const urlParams = new URLSearchParams(window.location.search);
 
-if (urlParams.has('success')) {
+<?php if (isset($_SESSION['flash_success'])): ?>
     let msg = "Opération réussie !";
-    if(urlParams.get('success') === 'updated') msg = "Catégorie mise à jour !";
-    if(urlParams.get('success') === 'created') msg = "Nouvelle catégorie ajoutée !";
-    if(urlParams.get('success') === 'deleted') msg = "Catégorie supprimée !";
+    let status = "<?= $_SESSION['flash_success'] ?>";
+    
+    if (status === 'updated') msg = "Catégorie mise à jour !";
+    if (status === 'created') msg = "Nouvelle catégorie ajoutée !";
+    if (status === 'deleted') msg = "Catégorie supprimée !";
 
     Toast.fire({
         icon: 'success',
         title: msg
     });
-    window.history.replaceState({}, document.title, window.location.pathname);
-}
+    <?php unset($_SESSION['flash_success']); ?>
+<?php endif; ?>
 
-if (urlParams.has('error')) {
+<?php if (isset($_SESSION['flash_error'])): ?>
     Toast.fire({
         icon: 'error',
         title: 'Une erreur est survenue'
     });
-    window.history.replaceState({}, document.title, window.location.pathname);
-}
+    <?php unset($_SESSION['flash_error']); ?>
+<?php endif; ?>
+
 </script>
 
 <?php include "partials/footer.php"; ?>

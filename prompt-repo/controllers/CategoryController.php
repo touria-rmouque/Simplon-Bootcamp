@@ -15,24 +15,30 @@ $category = new Category($db);
 // CREATE
 if (isset($_POST['create_category'])) {
     $name = trim($_POST['name']);
+    
     if (!empty($name)) {
-        $category->create($name);
-        header("Location: ../views/admin_dashboard.php?success=created"); 
-        exit;
+        if ($category->create($name)) {
+            $_SESSION['flash_success'] = "created";
+        } else {
+            $_SESSION['flash_error'] = "db_error";
+        }
     } else {
-        header("Location: ../views/admin_dashboard.php?error=missing_fields");
-        exit;
+        $_SESSION['flash_error'] = "missing_fields";
     }
+    header("Location: ../views/admin_dashboard.php");
+    exit;
 }
 
 // DELETE
 if (isset($_GET['delete_category'])) {
     $id = $_GET['delete_category'];
+    
     if ($category->delete($id)) {
-        header("Location: ../views/admin_dashboard.php?success=deleted");
+        $_SESSION['flash_success'] = "deleted";
     } else {
-        header("Location: ../views/admin_dashboard.php?error=delete_failed");
+        $_SESSION['flash_error'] = "delete_failed";
     }
+    header("Location: ../views/admin_dashboard.php");
     exit;
 }
 
@@ -40,15 +46,17 @@ if (isset($_GET['delete_category'])) {
 if (isset($_POST['update_category'])) {
     $id = $_POST['id'];
     $name = trim($_POST['name']);
+    
     if (!empty($id) && !empty($name)) {
         if ($category->update($id, $name)) {
-            header("Location: ../views/admin_dashboard.php?success=updated");
+            $_SESSION['flash_success'] = "updated";
         } else {
-            header("Location: ../views/admin_dashboard.php?error=update_failed");
+            $_SESSION['flash_error'] = "update_failed";
         }
     } else {
-        header("Location: ../views/admin_dashboard.php?error=missing_fields");
+        $_SESSION['flash_error'] = "missing_fields";
     }
+    header("Location: ../views/admin_dashboard.php");
     exit;
 }
 ?>
