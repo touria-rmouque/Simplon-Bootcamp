@@ -19,7 +19,7 @@ class User {
     }
     try {
         $query = "INSERT INTO users (name, email, password, role) 
-                  VALUES (:name, :email, :password, 'developer')";
+                  VALUES (:name, :email, :password, 'user')";
         
         $stmt = $this->conn->prepare($query);
         
