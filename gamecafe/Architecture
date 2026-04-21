@@ -1,0 +1,56 @@
+gamecafe/
+│
+├── composer.json               <-- Configuration de l'autoloading (PSR-4)
+│
+├── public/                     <-- Seul dossier accessible depuis le navigateur
+│   ├── .htaccess               <-- Redirige toutes les requêtes vers index.php
+│   ├── index.php               <-- Point d'entrée unique et définition des routes
+│   └── css/                    <-- (Optionnel) Fichiers CSS locaux si besoin
+│
+├── src/                        <-- Contient tout le code PHP métier
+│   │
+│   ├── Core/                   <-- Le moteur de base de l'application
+│   │   ├── Database.php        <-- Connexion PDO (Singleton)
+│   │   └── Router.php          <-- Moteur de routing personnalisé
+│   │
+│   ├── Models/                 <-- Intéragissent avec la base de données (Requêtes SQL)
+│   │   ├── User.php            <-- Gestion des comptes (Admin/Client)
+│   │   ├── Game.php            <-- CRUD des jeux
+│   │   ├── Table.php           <-- Gestion des tables du café
+│   │   ├── Reservation.php     <-- CRUD des réservations
+│   │   ├── Session.php         <-- CRUD des sessions de jeu en direct
+│   │   └── Rating.php          <-- (Bonus) Gestion des notes
+│   │
+│   ├── Services/               <-- Logique métier, vérifications et calculs ("Le Cerveau")
+│   │   ├── AuthService.php     <-- Gère la connexion, les sessions et protège les routes Admin
+│   │   ├── GameService.php     <-- Logique de filtrage et de recommandation (US4, Bonus)
+│   │   ├── ReservationService.php <-- Vérifie la disponibilité des tables (US5)
+│   │   └── SessionService.php  <-- Calcule les temps de jeu et le timer (US10, US11, Bonus)
+│   │
+│   └── Controllers/            <-- Orchestrent les requêtes HTTP, utilisent les Services et chargent les Vues
+│       ├── AuthController.php  <-- Gère le login, l'inscription et le logout
+│       ├── GameController.php  <-- Affiche le catalogue et les détails des jeux (Client)
+│       ├── ReservationController.php <-- Gère les formulaires de réservation (Client)
+│       └── AdminController.php <-- Espace sécurisé (Ajout de jeux, gestion des sessions, dashboard)
+│
+└── views/                      <-- Fichiers HTML/PHP gérant l'interface (TailwindCSS)
+    │
+    ├── layout.php              <-- Template principal (Header avec menu dynamique, Footer)
+    │
+    ├── auth/                   <-- Vues d'authentification
+    │   ├── login.php           <-- Formulaire de connexion
+    │   └── register.php        <-- Formulaire de création de compte client
+    │
+    ├── games/                  <-- Vues du catalogue (Accessibles à tous)
+    │   ├── index.php           <-- Liste des jeux (US1, US4)
+    │   └── show.php            <-- Détails d'un jeu (US2)
+    │
+    ├── reservations/           <-- Vues client pour réserver
+    │   ├── create.php          <-- Formulaire de réservation (US6)
+    │   └── history.php         <-- Historique du client (US7)
+    │
+    └── admin/                  <-- Vues strictement réservées aux gérants (Bloquées par AuthService)
+        ├── dashboard.php       <-- Vue d'ensemble, Timer visuel des sessions (US10, Bonus)
+        ├── games_manage.php    <-- Tableau pour Ajouter/Modifier/Supprimer des jeux (US3)
+        ├── reservations.php    <-- Liste des réservations du jour pour validation (US8)
+        └── session_start.php   <-- Formulaire pour associer table/jeu/réservation (US9)
