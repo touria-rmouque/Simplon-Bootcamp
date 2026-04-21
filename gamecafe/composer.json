@@ -1,0 +1,16 @@
+{
+    "name": "trinome/aji-l3bo-cafe",
+    "description": "Application de gestion pour le GameCafé Aji L3bo",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=8.0"
+    },
+    "config": {
+        "disable-tls": false
+    }
+}
