@@ -30,9 +30,6 @@
                 Se connecter
             </button>
         </form>
-        <p class="text-sm text-gray-500 text-center mt-4">
-            Test Admin: admin_aji / password123
-        </p>
     </div>
 </div>
 
