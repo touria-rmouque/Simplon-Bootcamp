@@ -1,20 +1,15 @@
 <?php
 session_start();
-// Affichage des erreurs pour faciliter le développement
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-// 1. Autoloader de Composer
+//Autoloader de Composer
 require_once __DIR__ . '/../vendor/autoload.php';
 
-// 2. Initialisation du Routeur
+// Initialisation du Routeur
 use App\Core\Router;
 $router = new Router();
-
-// ==========================================
-// DÉFINITION DES ROUTES
-// ==========================================
 
 // --- Pages Publiques ---
 $router->add('GET', '/', 'App\Controllers\GameController', 'index');
@@ -49,12 +44,9 @@ $router->add('GET', '/admin/games/edit', 'App\Controllers\AdminController', 'edi
 $router->add('POST', '/admin/games/edit', 'App\Controllers\AdminController', 'editGame');
 $router->add('POST', '/admin/games/delete', 'App\Controllers\AdminController', 'deleteGame');
 
-
-// ==========================================
-// 3. EXÉCUTION DE LA REQUÊTE (Mode Serveur Local)
-// ==========================================
+//EXÉCUTION DE LA REQUÊTE (Mode Serveur Local)
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $method = $_SERVER['REQUEST_METHOD'];
 
-// On lance la route !
+// On lance la route 
 $router->dispatch($uri, $method);
