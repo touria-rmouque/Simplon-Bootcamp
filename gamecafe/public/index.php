@@ -44,9 +44,9 @@ $router->add('GET', '/admin/games/edit', 'App\Controllers\AdminController', 'edi
 $router->add('POST', '/admin/games/edit', 'App\Controllers\AdminController', 'editGame');
 $router->add('POST', '/admin/games/delete', 'App\Controllers\AdminController', 'deleteGame');
 
-//EXÉCUTION DE LA REQUÊTE (Mode Serveur Local)
+//EXÉCUTION DE LA REQUÊTE
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $method = $_SERVER['REQUEST_METHOD'];
 
-// On lance la route 
+// lance la route 
 $router->dispatch($uri, $method);

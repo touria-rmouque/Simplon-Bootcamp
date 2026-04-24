@@ -4,12 +4,6 @@ namespace App\Core;
 class Router {
     private $routes = [];
 
-    /**
-     * * @param string 
-     * @param string $path 
-     * @param string $controller
-     * @param string $action 
-     */
     public function add($method, $path, $controller, $action) {
         $pathRegex = preg_replace('/\{([a-zA-Z0-9_]+)\}/', '([^/]+)', $path);
         $pathRegex = '#^' . $pathRegex . '$#';
@@ -22,10 +16,6 @@ class Router {
         ];
     }
 
-    /**
-     * * @param string
-     * @param string $method 
-     */
     public function dispatch($uri, $method) {
         $uri = parse_url($uri, PHP_URL_PATH);
 

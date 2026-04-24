@@ -37,7 +37,6 @@
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
         <?php foreach($games as $game): 
-            // Vérification de la disponibilité (suppose que votre SQL récupère is_available)
             $isAvailable = $game['is_available'] ?? true;
         ?>
             <div class="group bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col overflow-hidden relative">
